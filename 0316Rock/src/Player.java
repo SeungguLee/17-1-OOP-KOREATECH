@@ -3,10 +3,10 @@ public class Player {
 	private int[] resultCount = new int[3];
 	private PlayingStrategy strategy;
 	Player(RandomStrategy r) {
-		
+		System.out.println("dddd");
 	}
 	Player(LastResultBasedStrategy e) {
-		
+		System.out.println("eeeeee");
 	}
 	public void setStrategy(PlayingStrategy strategy) {
 		this.strategy = strategy;
