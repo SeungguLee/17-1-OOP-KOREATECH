@@ -21,6 +21,7 @@ public class Player {
 	}
 	public void setResult(ResultType currentResult){
 		++resultCount[currentResult.ordinal()];
+		strategy.recordHistory(currentResult);
 	}
 	@Override
 	public String toString(){

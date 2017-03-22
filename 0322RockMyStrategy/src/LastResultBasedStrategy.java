@@ -14,12 +14,13 @@ public class LastResultBasedStrategy implements PlayingStrategy {
 
 	@Override
 	public HandType nextHand() {
+		System.out.printf("\n이전:%s, 이전결과:%s\n", prevHand, prevResult);
 		if(prevHand==null || prevResult==null)
 			prevHand = HandType.valueOf(random.nextInt(3));
 		else if(prevResult == ResultType.LOST)
 			prevHand = prevHand.winValueOf().winValueOf();
 		else if(prevResult == ResultType.DRAWN)
-			prevHand = HandType.valueOf((prevHand.winValueOf().ordinal() + 1 + random.nextInt(2)) % 3);
+			prevHand = HandType.valueOf((prevHand.ordinal() + 1 + random.nextInt(2)) % 3);
 		else 
 			prevHand = HandType.valueOf((prevHand.ordinal() + 1 + random.nextInt(2)) % 3);
 		return prevHand;
